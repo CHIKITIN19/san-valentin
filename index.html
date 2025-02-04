@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script> 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8d7da;
+            transition: background-color 1s;
+            overflow: hidden;
+            background-image: url(img/illustration-background-love-concept-sweet-pink-color-perfect-for-valentine-s-day-or-love-communication-illustration-with-hearts-and-glitter-twinkle-design-for-banner-invitation-card-coupon-vector.jpg);
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContent">
+        <h1 class="mb-4">¿Quieres ser mi San Valentín?</h1> 
+        <img src="https://media1.tenor.com/m/PGxdqlirIYUAAAAC/cute-goodnight.gif" width="400px" height="400px">
+        <br>
+        <br>
+        <button class="btn btn-success me-2" onclick="aceptar()">Acepto</button>
+        <button class="btn btn-secondary" disabled>No acepto</button>
+    </div>
+    
+    <div class="container hidden" id="mensaje">
+        <h1 class="text-black">¡SABÍA QUE IBAS A ACEPTAR MI AMOR! ❤️</h1>
+        <img src="https://media1.tenor.com/m/A7d-ursSFK8AAAAC/bubu-dudu-kisses.gif" width="400px" height="400px">
+        <br>
+        <br>
+        <p class="text-black">Desde el primer momento en que te vi, supe que eras especial, gracias por aceptar y por hacerme el chico más feliz. ¡TE AMO! 💖</p>
+    </div>
+
+    <script>
+        function aceptar() {
+            lanzarConfeti();
+            document.body.style.backgroundColor = "pink";
+            document.getElementById("mainContent").classList.add("hidden");
+            document.getElementById("mensaje").classList.remove("hidden");
+        }
+
+        function lanzarConfeti() {
+            var duration = 5000; // Duración en milisegundos
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 10,
+                    spread: 160,
+                    startVelocity: 60,
+                    ticks: 200,
+                    origin: { x: Math.random(), y: Math.random() * 0.8 }
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+    </script>
+</body>
+</html>
