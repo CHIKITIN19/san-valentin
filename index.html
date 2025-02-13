@@ -16,32 +16,46 @@
             transition: background-color 1s;
             overflow: hidden;
             background-image: url(img/illustration-background-love-concept-sweet-pink-color-perfect-for-valentine-s-day-or-love-communication-illustration-with-hearts-and-glitter-twinkle-design-for-banner-invitation-card-coupon-vector.jpg);
+            background-size: cover;
+            background-position: center;
         }
         .container {
             text-align: center;
             position: relative;
+            max-width: 90%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
         .hidden {
             display: none;
+        }
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container" id="mainContent">
         <h1 class="mb-4">¿Quieres ser mi San Valentín?</h1> 
-        <img src="https://media1.tenor.com/m/PGxdqlirIYUAAAAC/cute-goodnight.gif" width="400px" height="400px">
-        <br>
-        <br>
+        <img src="https://media1.tenor.com/m/PGxdqlirIYUAAAAC/cute-goodnight.gif" class="img-fluid">
+        <br><br>
         <button class="btn btn-success me-2" onclick="aceptar()">Acepto</button>
         <button class="btn btn-secondary" disabled>No acepto</button>
     </div>
     
     <div class="container hidden" id="mensaje">
         <h1 class="text-black">¡SABÍA QUE IBAS A ACEPTAR MI AMOR! ❤️</h1>
-        <img src="img/WhatsApp Image 2025-02-10 at 9.38.46 PM.jpeg" width="440px" height="500px">
-        <br>
-        <br>
-        <p class="text-black">Desde el primer momento en que te vi, supe que eras especial, gracias por aceptar y por hacerme el chico más feliz, quiero hacerte la mujer más feliz si me lo permites, te mereces lo mejor mi amor ¡TE AMO! 💖</p>
+        <img src="img/WhatsApp Image 2025-02-10 at 9.38.46 PM.jpeg" class="img-fluid">
+        <br><br>
+        <p class="text-black">Desde el primer momento en que te vi, supe que eras especial. Gracias por aceptar y por hacerme el chico más feliz. Quiero hacerte la mujer más feliz si me lo permites. ¡TE AMO! 💖</p>
     </div>
 
     <script>
@@ -73,3 +87,4 @@
     </script>
 </body>
 </html>
+
