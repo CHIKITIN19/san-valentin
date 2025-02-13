@@ -60,11 +60,11 @@
 </head>
 <body>
     <div class="container" id="mainContent">
-        <h1 class="mb-4">¿Quieres ser mi San Valentín?</h1> 
+        <h1 class="mb-4" id="pregunta">¿Quieres ser mi San Valentín?</h1> 
         <img src="https://media1.tenor.com/m/PGxdqlirIYUAAAAC/cute-goodnight.gif">
         <br><br>
         <button class="btn btn-success me-2" onclick="aceptar()">Acepto</button>
-        <button class="btn btn-secondary" disabled>No acepto</button>
+        <button class="btn btn-secondary" id="btnNoAcepto" onclick="rechazar()">No acepto</button>
     </div>
     
     <div class="container hidden" id="mensaje">
@@ -75,6 +75,20 @@
     </div>
 
     <script>
+        let frases = [
+            "Ándale, no seas mala 🥺",
+            "Dame la oportunidad 💕",
+            "Yo te amo 😍",
+            "Te haré muy feliz ❤️",
+            "Piénsalo bien 🥰",
+            "Sin ti me deprimo 😭",
+            "Eres el amor de mi vida 💖",
+            "Eres mi chicaaa💖",
+            "Te amo muchisimo mi amor💖"
+            
+        ];
+        let indexFrase = 0;
+
         function aceptar() {
             lanzarConfeti();
             document.body.style.backgroundColor = "pink";
@@ -82,8 +96,18 @@
             document.getElementById("mensaje").classList.remove("hidden");
         }
 
+        function rechazar() {
+            let btnNoAcepto = document.getElementById("btnNoAcepto");
+            if (indexFrase < frases.length) {
+                btnNoAcepto.textContent = frases[indexFrase];
+                indexFrase++;
+            } else {
+                btnNoAcepto.textContent = "Ahora ya no puedes decir que no ❤️";
+            }
+        }
+
         function lanzarConfeti() {
-            var duration = 5000; // Duración en milisegundos
+            var duration = 5000;
             var end = Date.now() + duration;
 
             (function frame() {
